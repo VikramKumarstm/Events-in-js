@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event bubbling</title>
+
+    <style>
+        main {
+            height: 120px;
+            width: 120px;
+            background-color: red;
+        }
+
+        section {
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+        }
+
+        div {
+            height: 80px;
+            width: 80px;
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+
+    <main>
+        <section>
+            <div>
+                <!-- <form id="form">
+                    <input id="inp" type="text">
+                </form> -->
+
+                <button id="btn">Click Me</button>
+            </div>
+        </section>
+    </main>
+    
+
+    <script>
+        document.getElementById('btn').addEventListener("click", (event) => {
+            console.log("button clicked")
+        }, true)
+        document.querySelector('main').addEventListener("click", () => {
+            console.log("event reached main")
+        }, true)
+        document.querySelector('section').addEventListener("click", () => {
+            console.log("event reached section")
+        }, true)
+        document.querySelector('div').addEventListener("click", () => {
+            console.log("event reached div")
+        }, true)
+    </script>
+</body>
+</html>
+
+<!-- Event capturing works on reverse order of the event bubbling -->
